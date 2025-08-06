@@ -1,0 +1,58 @@
+<!DOCTYPE html><html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dompet Saya</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Dompet Saya</h2>
+    <p><strong>Total DAT:</strong> <span id="saldoDat">0</span></p><form id="withdrawForm">
+  <input type="number" id="jumlah" placeholder="Jumlah DAT" required><br>
+  <input type="text" id="nomorDana" placeholder="Nomor DANA" required><br>
+  <button type="submit">Withdraw</button>
+</form>
+
+<button onclick="window.location.href='dashboard.html'">Kembali ke Dashboard</button>
+
+  </div>  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>  <script src="supabase.js"></script>  <script>
+    let userEmail = "";
+
+    supabase.auth.getUser().then(async ({ data: { user } }) => {
+      if (!user) return (location.href = "index.html");
+      userEmail = user.email;
+
+      const { data, error } = await supabase
+        .from("users")
+        .select("total_dat")
+        .eq("email", user.email)
+        .single();
+
+      if (!error && data) {
+        document.getElementById("saldoDat").textContent = data.total_dat.toLocaleString();
+      }
+    });
+
+    document.getElementById("withdrawForm").addEventListener("submit", async function (e) {
+      e.preventDefault();
+      const jumlah = parseFloat(document.getElementById("jumlah").value);
+      const nomorDana = document.getElementById("nomorDana").value.trim();
+
+      if (!jumlah || jumlah <= 0 || !nomorDana) {
+        return alert("Mohon isi data dengan benar.");
+      }
+
+      const { error } = await supabase.from("withdraws").insert({
+        email: userEmail,
+        jumlah,
+        nomor_dana: nomorDana
+      });
+
+      if (error) return alert("Gagal kirim data withdraw: " + error.message);
+
+      alert("Withdraw berhasil dikirim, silakan tunggu proses admin.");
+      document.getElementById("withdrawForm").reset();
+    });
+  </script></body>
+</html>
