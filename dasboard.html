@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GEOVARA</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f1f8e9;
+      overflow-x: hidden;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+      background-color: white;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .iklan-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto;
+    }
+
+    .iklan-centerr {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto;
+    }
+    .logo {
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+    .menu-icon {
+      font-size: 1.8em;
+      cursor: pointer;
+    }
+    .hero {
+      padding: 50px 20px 20px;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 1.8em;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    .hero p {
+      font-size: 1em;
+      margin-bottom: 20px;
+    }
+    .play-now-btn {
+      display: block;
+      width: 60%;
+      margin: 10px auto 30px;
+      padding: 14px 20px;
+      font-size: 1.1em;
+      font-weight: bold;
+      text-align: center;
+      background-color: #000;
+      color: white;
+      border: none;
+      border-radius: 999px;
+      text-decoration: none;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+    .menu-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0; right: 0;
+      height: 100%;
+      background: #f1f8e9;
+      z-index: 99;
+      animation: slideDown 0.3s ease forwards;
+    }
+    .menu-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+      background-color: white;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .menu-header .logo {
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+    .menu-header .menu-icon {
+      font-size: 1.8em;
+      cursor: pointer;
+    }
+    .menu-overlay ul {
+      list-style: none;
+      padding: 20px;
+      margin: 0;
+    }
+    .menu-overlay li {
+      margin: 20px 0;
+      font-size: 1.2em;
+    }
+    .menu-overlay a {
+      color: #000;
+      text-decoration: none;
+    }
+    @keyframes slideDown {
+      from { transform: translateY(-100%); }
+      to { transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">GOV</div>
+    <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+  </header>
+
+<!-- Menu Overlay -->
+<div class="menu-overlay" id="menuOverlay">
+  <div class="menu-header">
+    <div class="logo">GOV</div>
+    <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+  </div>
+  <ul style="padding: 20px; margin: 0; list-style: none;">
+    <li><a href="index.login.html">🔜LOGING GOV</a></li>
+    <li><a href="#">🔜BOLA72</a></li>
+    <li><a href="cuplikan.html">🔜VIDIO BOLA72</a></li>
+    <li><a href="jadwalbola.html">🔜JADWAL BOLA72</a></li>
+    <li><a href="bitcoin.html">🔜BITCOIN NEWS</a></li>
+    <li><a href="btc.html">🔜BITCOIN LiVE</a></li>
+
+    <!-- ✅ Tombol "Play Game" sejajar -->
+    <li style="margin-top: 30px; text-align: center;">
+      <a href="tugasa.html" style="
+        display: inline-block;
+        background-color: black;
+        color: white;
+        font-weight: bold;
+        padding: 12px 24px;
+        border-radius: 30px;
+        text-decoration: none;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      ">🎮 Play Game</a>
+    </li>
+  </ul>
+</div>
+
+  <div class="hero">
+    <p>Dipercaya oleh lebih dari 3 juta pengguna</p>
+    <h1>Gabung dengan GEOVARA<br> kumpulin koin.</h1> 
+    <p>tukar ke saldo DANA tiap hari! Modal HP aja, gak ribet.</p>
+    
+    <!-- Tombol Play Now -->
+    <a href="index.login.html" class="play-now-btn">PLAY NOW →</a>
+  </div>
+  
+
+
+<div class="hero">
+    <p>GEOVARA adalah platform game mining koin</p>
+    <h1>yang memberikan reward nyata<br>Setiap koin yang Anda dapatkan.</h1>
+    <p>bisa ditukar langsung ke saldo DANA.</p>
+  </div>
+  
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('menuOverlay');
+      menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+    }
+  </script>
+  <div style="text-align:center; margin-bottom: 30px;">
+  <img src="https://i.postimg.cc/RZfnq069/file-00000000d2c861f797ef79d5faddb9d9.png"
+       alt="Gambar"
+       style="width: 350px; pointer-events: none; user-select: none;" />
+ </div>
+
+  <div style="text-align: center; margin-top: 20px;">
+  <button onclick="setLanguage('id')">🇮🇩 Bahasa</button>
+  <button onclick="setLanguage('en')">🇺🇸 English</button>
+</div>
+
+  <div id="content-id" style="padding: 20px; text-align: center; font-family: Arial, sans-serif;">
+  <h2>Tentang GEOVARA</h2>
+  <p><strong>GEOVARA</strong> adalah platform game mining koin berbasis web yang memungkinkan Anda mendapatkan <strong>GOV Coin</strong> langsung dari HP Anda.</p>
+  <p>Mainkan game-nya tanpa modal, klaim reward setiap jam, dan tukarkan langsung ke <strong>saldo DANA</strong> Anda kapan saja.</p>
+  <ul style="list-style: none; padding-left: 0; line-height: 1.8;">
+    <li>✅ Game mining otomatis & seru</li>
+    <li>💰 Reward bisa langsung ditukar ke DANA</li>
+    <li>🎁 Klaim hadiah setiap jam & bonus harian</li>
+    <li>👥 Sistem referral undang teman dapat bonus</li>
+    <li>🔐 Login cepat & aman</li>
+  </ul>
+  <p>
+    Tidak hanya itu, <strong>GOV</strong> juga menyediakan berbagai informasi dan berita <strong>terkini seputar dunia sepakbola</strong>, 
+    mulai dari bursa transfer pemain, hasil pertandingan, hingga update liga-liga top Eropa seperti Premier League, La Liga, Serie A, dan lainnya.
+  </p>
+  <p>Bergabung sekarang dan nikmati serunya bermain sambil tetap update dengan dunia sepakbola!</p>
+  </div>
+</script>
+  
+</body>
+</html>
