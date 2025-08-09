@@ -11,70 +11,55 @@
       background: #f1f8e9;
       overflow-x: hidden;
     }
-
-    /* ===== HEADER STYLE ===== */
     header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 12px 16px;
-      background: #fff;
+      background-color: white;
       position: sticky;
       top: 0;
       z-index: 10;
-      border-bottom: 1px solid #eee;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
-    .left-section {
+    .header-top {
       display: flex;
+      justify-content: space-between;
       align-items: center;
-      gap: 10px;
-    }
-    .menu-icon {
-      font-size: 20px;
-      cursor: pointer;
-      display: none; /* default hidden di desktop */
+      padding: 15px 20px;
     }
     .logo {
-      font-size: 1.4em;
+      font-size: 1.5em;
       font-weight: bold;
-      color: #005bbb;
     }
-    .menu-links {
+    .menu-icon {
+      font-size: 1.8em;
+      cursor: pointer;
+    }
+    /* Bar menu bawah logo */
+    .nav-bar {
       display: flex;
-      gap: 15px;
+      justify-content: center;
+      gap: 20px;
+      border-top: 1px solid #eee;
+      border-bottom: 1px solid #eee;
+      background: white;
+      padding: 10px 0;
     }
-    .menu-links a {
+    .nav-bar a {
       text-decoration: none;
-      font-weight: bold;
       color: black;
+      font-weight: bold;
+      position: relative;
     }
-    .menu-links .dot {
-      display: inline-block;
+    .nav-bar a.active::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 50%;
+      transform: translateX(-50%);
       width: 6px;
       height: 6px;
       background: red;
       border-radius: 50%;
-      margin-left: 4px;
     }
-    .right-section {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .search-icon {
-      font-size: 18px;
-      cursor: pointer;
-    }
-    .live-icon {
-      font-size: 0.8em;
-      background: #e6f0ff;
-      color: #0044cc;
-      padding: 3px 6px;
-      border-radius: 4px;
-      font-weight: bold;
-    }
-
-    /* ===== MENU OVERLAY MOBILE ===== */
+    /* Menu overlay */
     .menu-overlay {
       display: none;
       position: fixed;
@@ -93,14 +78,6 @@
       background-color: white;
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
-    .menu-header .logo {
-      font-size: 1.5em;
-      font-weight: bold;
-    }
-    .menu-header .menu-icon {
-      font-size: 1.8em;
-      cursor: pointer;
-    }
     .menu-overlay ul {
       list-style: none;
       padding: 20px;
@@ -118,48 +95,64 @@
       from { transform: translateY(-100%); }
       to { transform: translateY(0); }
     }
-
-    /* ===== RESPONSIVE ===== */
-    @media(max-width: 768px) {
-      .menu-links { display: none; }
-      .menu-icon { display: block; }
+    /* Konten hero */
+    .hero {
+      padding: 50px 20px 20px;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 1.8em;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    .hero p {
+      font-size: 1em;
+      margin-bottom: 20px;
+    }
+    .play-now-btn {
+      display: block;
+      width: 60%;
+      margin: 10px auto 30px;
+      padding: 14px 20px;
+      font-size: 1.1em;
+      font-weight: bold;
+      text-align: center;
+      background-color: #000;
+      color: white;
+      border: none;
+      border-radius: 999px;
+      text-decoration: none;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     }
   </style>
 </head>
 <body>
 
-  <!-- HEADER -->
   <header>
-    <div class="left-section">
-      <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+    <div class="header-top">
       <div class="logo">GEOVARA</div>
+      <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
     </div>
-    <nav class="menu-links">
-      <a href="terpopuler.html">Terpopuler</a>
-      <a href="rekomendasi.html">Rekomendasi <span class="dot"></span></a>
-      <a href="awards.html">Signature Awards</a>
+    <nav class="nav-bar">
+      <a href="#" class="active">Terpopuler</a>
+      <a href="#">Rekomendasi</a>
+      <a href="#">Signature Awards</a>
     </nav>
-    <div class="right-section">
-      <span class="search-icon">&#128269;</span>
-      <span class="live-icon">LIVE</span>
-    </div>
   </header>
 
-  <!-- MENU OVERLAY MOBILE -->
+  <!-- Menu Overlay -->
   <div class="menu-overlay" id="menuOverlay">
     <div class="menu-header">
       <div class="logo">GEOVARA</div>
       <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
     </div>
     <ul>
-      <li><a href="terpopuler.html">Terpopuler</a></li>
-      <li><a href="rekomendasi.html">Rekomendasi</a></li>
-      <li><a href="awards.html">Signature Awards</a></li>
-      <li><a href="index.login.html">Login</a></li>
-      <li><a href="cuplikan.html">Vidio Bola72</a></li>
-      <li><a href="jadwalbola.html">Jadwal Bola72</a></li>
-      <li><a href="bitcoin.html">Bitcoin News</a></li>
-      <li><a href="btc.html">Bitcoin Live</a></li>
+      <li><a href="index.login.html">🔜LOGING GOV</a></li>
+      <li><a href="#">🔜BOLA72</a></li>
+      <li><a href="cuplikan.html">🔜VIDIO BOLA72</a></li>
+      <li><a href="jadwalbola.html">🔜JADWAL BOLA72</a></li>
+      <li><a href="bitcoin.html">🔜BITCOIN NEWS</a></li>
+      <li><a href="btc.html">🔜BITCOIN LiVE</a></li>
       <li style="margin-top: 30px; text-align: center;">
         <a href="tugasa.html" style="
           display: inline-block;
@@ -175,26 +168,43 @@
     </ul>
   </div>
 
-  <!-- HERO SECTION -->
-  <div class="hero" style="padding: 50px 20px 20px; text-align: center;">
+  <div class="hero">
     <p>Dipercaya oleh lebih dari 3 juta pengguna</p>
-    <h1>Gabung dengan GEOVARA<br> kumpulin koin.</h1> 
-    <p>Tukar ke saldo DANA tiap hari! Modal HP aja, gak ribet.</p>
-    <a href="index.login.html" class="play-now-btn" style="
-      display: block;
-      width: 60%;
-      margin: 10px auto 30px;
-      padding: 14px 20px;
-      font-size: 1.1em;
-      font-weight: bold;
-      text-align: center;
-      background-color: #000;
-      color: white;
-      border: none;
-      border-radius: 999px;
-      text-decoration: none;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    ">PLAY NOW →</a>
+    <h1>Gabung dengan GEOVARA<br> kumpulin koin.</h1>
+    <p>tukar ke saldo DANA tiap hari! Modal HP aja, gak ribet.</p>
+    <a href="index.login.html" class="play-now-btn">PLAY NOW →</a>
+  </div>
+
+  <div class="hero">
+    <p>GEOVARA adalah platform game mining koin</p>
+    <h1>yang memberikan reward nyata<br>Setiap koin yang Anda dapatkan.</h1>
+    <p>bisa ditukar langsung ke saldo DANA.</p>
+  </div>
+
+  <div style="text-align:center; margin-bottom: 30px;">
+    <img src="https://i.postimg.cc/RZfnq069/file-00000000d2c861f797ef79d5faddb9d9.png"
+         alt="Gambar"
+         style="width: 350px; pointer-events: none; user-select: none;" />
+  </div>
+
+  <div style="text-align: center; margin-top: 20px;">
+    <button onclick="setLanguage('id')">🇮🇩 Bahasa</button>
+    <button onclick="setLanguage('en')">🇺🇸 English</button>
+  </div>
+
+  <div id="content-id" style="padding: 20px; text-align: center;">
+    <h2>Tentang GEOVARA</h2>
+    <p><strong>GEOVARA</strong> adalah platform game mining koin berbasis web yang memungkinkan Anda mendapatkan <strong>GOV Coin</strong> langsung dari HP Anda.</p>
+    <p>Mainkan game-nya tanpa modal, klaim reward setiap jam, dan tukarkan langsung ke <strong>saldo DANA</strong> Anda kapan saja.</p>
+    <ul style="list-style: none; padding-left: 0; line-height: 1.8;">
+      <li>✅ Game mining otomatis & seru</li>
+      <li>💰 Reward bisa langsung ditukar ke DANA</li>
+      <li>🎁 Klaim hadiah setiap jam & bonus harian</li>
+      <li>👥 Sistem referral undang teman dapat bonus</li>
+      <li>🔐 Login cepat & aman</li>
+    </ul>
+    <p>Tidak hanya itu, <strong>GOV</strong> juga menyediakan berbagai informasi dan berita <strong>terkini seputar dunia sepakbola</strong>, mulai dari bursa transfer pemain, hasil pertandingan, hingga update liga-liga top Eropa seperti Premier League, La Liga, Serie A, dan lainnya.</p>
+    <p>Bergabung sekarang dan nikmati serunya bermain sambil tetap update dengan dunia sepakbola!</p>
   </div>
 
   <script>
@@ -203,6 +213,5 @@
       menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
     }
   </script>
-
 </body>
-</html>
+    </html>
