@@ -32,7 +32,6 @@
       font-size: 1.8em;
       cursor: pointer;
     }
-    /* Bar menu bawah logo */
     .nav-bar {
       display: flex;
       justify-content: center;
@@ -59,7 +58,6 @@
       background: red;
       border-radius: 50%;
     }
-    /* Menu overlay */
     .menu-overlay {
       display: none;
       position: fixed;
@@ -95,7 +93,6 @@
       from { transform: translateY(-100%); }
       to { transform: translateY(0); }
     }
-    /* Konten hero */
     .hero {
       padding: 50px 20px 20px;
       text-align: center;
@@ -123,6 +120,58 @@
       border-radius: 999px;
       text-decoration: none;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Footer mirip CNN */
+    footer {
+      background-color: #1a1a1a;
+      color: white;
+      padding: 20px 15px;
+      font-size: 14px;
+    }
+    .footer-links {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+    .footer-column {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 15px;
+    }
+    .footer-column a {
+      color: white;
+      text-decoration: none;
+    }
+    .footer-social {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .social-icon {
+      width: 35px;
+      height: 35px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: #333;
+      color: white;
+      font-size: 18px;
+      text-decoration: none;
+    }
+    .footer-bottom {
+      border-top: 1px solid #333;
+      padding-top: 10px;
+      font-size: 12px;
+      color: #ccc;
+    }
+    .footer-bottom a {
+      color: #ccc;
+      text-decoration: none;
+      margin: 0 5px;
     }
   </style>
 </head>
@@ -153,44 +202,78 @@
       <li><a href="jadwalbola.html">🔜POLITIK</a></li>
       <li><a href="bitcoin.html">🔜INDEKS</a></li>
       <li><a href="btc.html">🔜LOWONGAN KERJA</a></li>
-       <li><a href="jadwalbola.html">🔜HUKUM</a></li>
+      <li><a href="jadwalbola.html">🔜HUKUM</a></li>
       <li><a href="bitcoin.html">🔜DESTINASI</a></li>
-      <li style="margin-top: 30px; text-align: center;">
-        
-      </li>
     </ul>
   </div>
 
-<!-- Tambahan Berita Sambut Hari Indonesia -->
-<div style="padding: 20px; text-align: left; max-width: 800px; margin: auto;">
-  <h2 style="text-align:center;">Sambut Hari Indonesia, Berbagai Daerah Gelar Acara Meriah</h2>
-  <img src="https://i.postimg.cc/yxfgKx3M/IMG-20250809-WA0013-1977928249.webp" alt="Perayaan Hari Indonesia"
-       style="width:100%; max-width:600px; display:block; margin:20px auto; border-radius:10px;">
-  <p>
-    Menyambut Hari Indonesia yang jatuh pada tanggal 17 Agustus, berbagai daerah di seluruh nusantara menggelar
-    rangkaian acara meriah. Kegiatan ini tidak hanya diikuti oleh masyarakat umum, tetapi juga oleh pemerintah
-    daerah, sekolah, komunitas seni, dan pelaku UMKM.
-  </p>
-  <p>
-    Di Jakarta, perayaan dimulai dengan upacara bendera di Monas, yang dihadiri ribuan peserta dari berbagai lapisan
-    masyarakat. Selain itu, ada pawai budaya yang menampilkan ragam tarian dan pakaian adat dari seluruh provinsi di
-    Indonesia.
-  </p>
-  <p>
-    Di daerah lain, seperti Yogyakarta dan Surabaya, digelar lomba rakyat, bazar UMKM, dan pentas musik.
-    Acara ini menjadi ajang silaturahmi antarwarga sekaligus sarana memperkenalkan potensi daerah kepada pengunjung.
-  </p>
-  <p>
-    Perayaan Hari Indonesia tahun ini mengangkat tema <em>"Bersatu untuk Maju"</em> yang diharapkan dapat menjadi
-    semangat persatuan dalam keberagaman. Pemerintah juga mendorong agar masyarakat memanfaatkan momentum ini
-    untuk meningkatkan rasa cinta tanah air dan saling menghargai.
-  </p>
-</div>
+  <!-- Konten -->
+  <div style="padding: 20px; text-align: left; max-width: 800px; margin: auto;">
+    <h2 style="text-align:center;">Sambut Hari Indonesia, Berbagai Daerah Gelar Acara Meriah</h2>
+    <img src="https://i.postimg.cc/yxfgKx3M/IMG-20250809-WA0013-1977928249.webp" 
+         alt="Perayaan Hari Indonesia"
+         style="width:100%; max-width:600px; display:block; margin:20px auto; border-radius:10px;">
+    <p>
+      Menyambut Hari Indonesia yang jatuh pada tanggal 17 Agustus, berbagai daerah di seluruh nusantara menggelar
+      rangkaian acara meriah. Kegiatan ini tidak hanya diikuti oleh masyarakat umum, tetapi juga oleh pemerintah
+      daerah, sekolah, komunitas seni, dan pelaku UMKM.
+    </p>
+    <p>
+      Di Jakarta, perayaan dimulai dengan upacara bendera di Monas, yang dihadiri ribuan peserta dari berbagai lapisan
+      masyarakat. Selain itu, ada pawai budaya yang menampilkan ragam tarian dan pakaian adat dari seluruh provinsi di
+      Indonesia.
+    </p>
+    <p>
+      Di daerah lain, seperti Yogyakarta dan Surabaya, digelar lomba rakyat, bazar UMKM, dan pentas musik.
+      Acara ini menjadi ajang silaturahmi antarwarga sekaligus sarana memperkenalkan potensi daerah kepada pengunjung.
+    </p>
+    <p>
+      Perayaan Hari Indonesia tahun ini mengangkat tema <em>"Bersatu untuk Maju"</em> yang diharapkan dapat menjadi
+      semangat persatuan dalam keberagaman. Pemerintah juga mendorong agar masyarakat memanfaatkan momentum ini
+      untuk meningkatkan rasa cinta tanah air dan saling menghargai.
+    </p>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-links">
+      <div class="footer-column">
+        <a href="#">Nasional</a>
+        <a href="#">Otomotif</a>
+        <a href="#">Hiburan</a>
+        <a href="#">Gaya Hidup</a>
+      </div>
+      <div class="footer-column">
+        <a href="#">Teknologi</a>
+        <a href="#">Internasional</a>
+        <a href="#">Ekonomi</a>
+        <a href="#">Olahraga</a>
+      </div>
+    </div>
+
+    <div class="footer-social">
+      <a href="#" class="social-icon" style="background:#3b5998;">f</a>
+      <a href="#" class="social-icon" style="background:#1da1f2;">&#9679;</a>
+      <a href="#" class="social-icon" style="background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);">&#9679;</a>
+    </div>
+
+    <div class="footer-bottom">
+      © 2025 RADAR.INFO. All rights reserved.  
+      <div>
+        <a href="#">Tentang Kami</a> | 
+        <a href="#">Redaksi</a> | 
+        <a href="#">Pedoman Media Siber</a> | 
+        <a href="#">Disclaimer</a>
+      </div>
+    </div>
+  </footer>
+
   <script>
     function toggleMenu() {
       const menu = document.getElementById('menuOverlay');
       menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
     }
   </script>
+
 </body>
-    </html>
+</html>
