@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RADAR.INFO</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #FFFFFF;
+      overflow-x: hidden;
+    }
+    header {
+      background-color: white;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .nav-menu {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      background: #f5f5f5;
+      padding: 10px;
+      border-radius: 5px;
+    }
+    .ad-container {
+      margin: 20px auto;
+      min-height: 50px;
+      background: #f8f8f8;
+      border: 1px dashed #ccc;
+      border-radius: 4px;
+      text-align: center;
+      padding: 10px;
+      max-width: 800px;
+    }
+    .banner-iklan {
+      margin: 0 auto;
+    }
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+    }
+    .logo {
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+    .menu-icon {
+      font-size: 1.8em;
+      cursor: pointer;
+    }
+    .nav-bar {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      border-top: 1px solid #eee;
+      border-bottom: 1px solid #eee;
+      background: white;
+      padding: 10px 0;
+    }
+    .nav-bar a {
+      text-decoration: none;
+      color: black;
+      font-weight: bold;
+      position: relative;
+    }
+    .nav-bar a.active::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 6px;
+      height: 6px;
+      background: red;
+      border-radius: 50%;
+    }
+    .menu-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0; right: 0;
+      height: 100%;
+      background: #FFFFFF;
+      z-index: 99;
+      animation: slideDown 0.3s ease forwards;
+    }
+    .menu-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+      background-color: white;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .menu-overlay ul {
+      list-style: none;
+      padding: 20px;
+      margin: 0;
+    }
+    .menu-overlay li {
+      margin: 20px 0;
+      font-size: 1.2em;
+    }
+    .menu-overlay a {
+      color: #000;
+      text-decoration: none;
+    }
+    @keyframes slideDown {
+      from { transform: translateY(-100%); }
+      to { transform: translateY(0); }
+    }
+    .hero {
+      padding: 50px 20px 20px;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 1.4em;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    .hero p {
+      font-size: 1em;
+      margin-bottom: 20px;
+    }
+    .play-now-btn {
+      display: block;
+      width: 60%;
+      margin: 10px auto 30px;
+      padding: 14px 20px;
+      font-size: 1.1em;
+      font-weight: bold;
+      text-align: center;
+      background-color: #000;
+      color: white;
+      border: none;
+      border-radius: 999px;
+      text-decoration: none;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+    /* Footer mirip CNN */
+    footer {
+      background-color: #1a1a1a;
+      color: white;
+      padding: 20px 15px;
+      font-size: 14px;
+    }
+    .footer-links {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+    .footer-column {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 15px;
+    }
+    .footer-column a {
+      color: white;
+      text-decoration: none;
+    }
+    .footer-social {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .social-icon {
+      width: 35px;
+      height: 35px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: #333;
+      color: white;
+      font-size: 18px;
+      text-decoration: none;
+    }
+    .footer-bottom {
+      border-top: 1px solid #333;
+      padding-top: 10px;
+      font-size: 12px;
+      color: #ccc;
+    }
+    .footer-bottom a {
+      color: #ccc;
+      text-decoration: none;
+      margin: 0 5px;
+    }
+    .content-wrapper {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .news-image {
+      width: 100%;
+      max-width: 600px;
+      display: block;
+      margin: 20px auto;
+      border-radius: 10px;
+  }
+
+.news-list a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: black;
+  margin-bottom: 15px;
+}
+
+.news-list img {
+  width: 90px; /* kecilkan gambar */
+  height: 60px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-right: 10px;
+}
+
+.news-list h3 {
+  margin: 0;
+  font-size: 0.95em; /* kecilkan font */
+  font-weight: bold;
+  line-height: 1.3em;
+}
+
+.news-list small {
+  color: gray;
+  font-size: 0.78em;
+}
+    
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-top">
+      <div class="logo">RADAR.COM</div>
+      <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+    </div>
+    <nav class="nav-bar">
+      <a href="berita.populer.html" class="active">Terpopuler</a>
+      <a href="#">Rekomendasi</a>
+      <a href="#">Signature Awards</a>
+    </nav>
+  </header>
+
+  <!-- Menu Overlay -->
+  <div class="menu-overlay" id="menuOverlay">
+    <div class="menu-header">
+      <div class="logo">GEOVARA</div>
+      <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+    </div>
+    <ul>
+      <li><a href="index.login.html">🔜BANTEN</a></li>
+      <li><a href="#">🔜KRIMINAL</a></li>
+      <li><a href="https://getminerr.netlify.app/cuplikan">🔜SUPORT</a></li>
+      <li><a href="jadwalbola.html">🔜POLITIK</a></li>
+      <li><a href="bitcoin.html">🔜INDEKS</a></li>
+      <li><a href="btc.html">🔜LOWONGAN KERJA</a></li>
+      <li><a href="jadwalbola.html">🔜HUKUM</a></li>
+      <li><a href="bitcoin.html">🔜DESTINASI</a></li>
+    </ul>
+  </div>
+
+  <!-- Ad Container -->
+  <div class="ad-container">
+    <div class="banner-iklan">
+      <script type="text/javascript">
+        atOptions = {
+          'key': '4e60c2dc0ad93ebe9293772cf7fd42fe',
+          'format': 'iframe',
+          'height': 50,
+          'width': 320,
+          'params': {}
+        };
+      </script>
+      <script type="text/javascript" src="//www.highperformanceformat.com/4e60c2dc0ad93ebe9293772cf7fd42fe/invoke.js"></script>
+    </div>
+  </div>
+
+  <!-- Konten -->
+  <div class="content-wrapper">
+    <h2 style="text-align:center;">Sambut Hari Indonesia, Berbagai Daerah Gelar Acara Meriah</h2>
+    <img src=" " 
+         alt="Perayaan Hari Indonesia"
+         class="news-image">
+
+
+
+    
+  </div>
+ <!-- Daftar Berita -->
+<div class="news-list" style="max-width:700px; margin:20px auto;">
+  
+  <!-- Item Berita -->
+  <a href="berita1.html" style="display:flex; align-items:center; text-decoration:none; color:black; margin-bottom:15px;">
+    <img src="https://i.postimg.cc/qqYc8ht4/letjen-tandyo-budi-revita-1754722230972-169.jpg" alt="Berita 1" style="width:100px; height:70px; object-fit:cover; border-radius:6px; margin-right:12px;">
+    <div>
+      <h3 style="margin:0; font-size:1em; font-weight:bold; line-height:1.3;">
+        Prabowo Lantik Tandyo Budi Revita Jadi Wakil Panglima TNI
+      </h3>
+      <small style="color:gray;">19 hari yang lalu</small>
+    </div>
+  </a>
+
+  <!-- Item Berita -->
+  <a href="berita2.html" style="display:flex; align-items:center; text-decoration:none; color:black; margin-bottom:15px;">
+    <img src="https://i.postimg.cc/76vLx1dr/berita2.jpg" alt="Berita 2" style="width:100px; height:70px; object-fit:cover; border-radius:6px; margin-right:12px;">
+    <div>
+      <h3 style="margin:0; font-size:1em; font-weight:bold; line-height:1.3;">
+        Pahit getir pelaku usaha kecil di tengah program MBG
+      </h3>
+      <small style="color:gray;">Sekitar sebulan yang lalu</small>
+    </div>
+  </a>
+
+  <!-- Item Berita -->
+  <a href="berita3.html" style="display:flex; align-items:center; text-decoration:none; color:black; margin-bottom:15px;">
+    <img src="https://i.postimg.cc/dtFyrzFH/berita3.jpg" alt="Berita 3" style="width:100px; height:70px; object-fit:cover; border-radius:6px; margin-right:12px;">
+    <div>
+      <h3 style="margin:0; font-size:1em; font-weight:bold; line-height:1.3;">
+        Perjanjian Sungai Gangga segera berakhir, pertaruhan besar menanti India dan Bangladesh
+      </h3>
+      <small style="color:gray;">2 hari yang lalu</small>
+    </div>
+  </a>
+
+  <!-- Item Berita -->
+  <a href="berita4.html" style="display:flex; align-items:center; text-decoration:none; color:black; margin-bottom:15px;">
+    <img src="https://i.postimg.cc/L5grb77F/berita4.jpg" alt="Berita 4" style="width:100px; height:70px; object-fit:cover; border-radius:6px; margin-right:12px;">
+    <div>
+      <h3 style="margin:0; font-size:1em; font-weight:bold; line-height:1.3;">
+        TNI akan produksi obat untuk masyarakat, apa risikonya menurut pakar?
+      </h3>
+      <small style="color:gray;">5 hari yang lalu</small>
+    </div>
+  </a>
+</div>
+
+  <!-- Bagian logo + slogan di footer -->
+  <div style="display:flex; align-items:center; background:#1a1a1a; padding:15px;">
+    <img src="https://i.postimg.cc/MTb2t8Vf/logo-radar.png" alt="Logo RADAR" style="height:40px; margin-right:15px;">
+    <span style="color:white; font-size:20px;">
+      NEWS WE <strong style="color:white;">CAN TRUST</strong>
+    </span>
+  </div>
+  
+  <!-- Footer -->
+  <footer>
+    <div class="footer-links">
+      <div class="footer-column">
+        <a href="#">Nasional</a>
+        <a href="#">Otomotif</a>
+        <a href="#">Hiburan</a>
+        <a href="#">Gaya Hidup</a>
+      </div>
+      <div class="footer-column">
+        <a href="#">Teknologi</a>
+        <a href="#">Internasional</a>
+        <a href="#">Ekonomi</a>
+        <a href="#">Olahraga</a>
+      </div>
+    </div>
+
+    <div class="footer-social">
+      <a href="#" class="social-icon" style="background:#3b5998;">f</a>
+      <a href="#" class="social-icon" style="background:#1da1f2;">&#9679;</a>
+      <a href="#" class="social-icon" style="background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);">&#9679;</a>
+    </div>
+
+    <div class="footer-bottom">
+      © 2025 RADAR.INFO. All rights reserved.  
+      <div>
+        <a href="#">Tentang Kami</a> | 
+        <a href="#">Redaksi</a> | 
+        <a href="#">Pedoman Media Siber</a> | 
+        <a href="#">Disclaimer</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('menuOverlay');
+      menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+    }
+  </script>
+
+</body>
+  </html>
